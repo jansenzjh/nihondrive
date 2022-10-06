@@ -1,0 +1,3 @@
+requests
+mysql.connector
+Flask>=2.0.2
