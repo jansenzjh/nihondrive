@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Questions {% endblock %}</h1>
+    <h1>{% block title %} {{ question_type }} {% endblock %}</h1>
     <div style="width: 50%; margin: auto">
-        {% set url = "bbb" %}
         {% for i in range(0, len) %}
-        <div style="padding: 10px; background-color: #EEE; margin: 20px">
+        <div class="question_area" style="padding: 10px; background-color: #EEE; margin: 20px">
             <p id="question_{{i + 1}}" style="font-size: 24px" data-answer="{{ questions[i].Answer }}"><span>{{i + 1}} </span>{{ questions[i].Question|safe }}</p>
             <div>
                 <span>
@@ -22,23 +21,22 @@
             
         </div>
         {% endfor %}
+        <button id="submit">Submit</button>
+        <div id="total_result"></div>
     </div>
-
-    <button id="submit">Submit</button>
-    <div id="total_result"></div>
 
     <script>
         $(document).ready(function(){
             $("#submit").click(function(){
-                var full_score = 50;
-                for(var i = 1; i <= 50; i++){
+                var full_score = $(".question_area").length;
+                for(var i = 1; i <= $(".question_area").length; i++){
                     if($("input[name='answer_"+ i + "']:checked").val() != $("#question_"+ i).data("answer")){
                         $("#result_" + i).text("Wrong!")
                         $("#result_" + i).css("color", "red")
                         full_score--;
                     }
                 }
-                $("#total_result").text(full_score + "/50")
+                $("#total_result").text(full_score + "/" + $(".question_area").length)
             });
         });
     </script>

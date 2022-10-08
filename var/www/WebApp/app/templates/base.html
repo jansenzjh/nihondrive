@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %} - FlaskApp</title>
+    <title>{% block title %} {% endblock %}</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         nav a {
             color: #d64161;
-            font-size: 3em;
+            font-size: 1em;
             margin-left: 50px;
             text-decoration: none;
         }
@@ -15,8 +15,10 @@
 </head>
 <body>
     <nav>
-        <a href="{{ url_for('hello') }}">FlaskApp</a>
-        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('karimen', load_all=false) }}">Karimen</a>
+        <a href="{{ url_for('honmen', load_all=false) }}">Honmen</a>
+        <a href="{{ url_for('karimen', load_all=true) }}">Karimen All</a>
+        <a href="{{ url_for('honmen', load_all=true) }}">Honmen All</a>
     </nav>
     <hr>
     <div class="content">
