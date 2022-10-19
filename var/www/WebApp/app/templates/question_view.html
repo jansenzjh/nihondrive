@@ -5,6 +5,7 @@
     <div style="width: 50%; margin: auto">
         {% for i in range(0, len) %}
         <div class="question_area" style="padding: 10px; background-color: #EEE; margin: 20px">
+            <input type="checkbox" id="cbx_{{i + 1}}" name="cbx_{{i + 1}}" value="">
             <p id="question_{{i + 1}}" style="font-size: 24px" data-answer="{{ questions[i].Answer }}"><span>{{i + 1}} </span>{{ questions[i].Question|safe }}</p>
             <div>
                 <span>
